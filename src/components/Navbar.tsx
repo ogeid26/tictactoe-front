@@ -13,7 +13,7 @@ const Navbar = () => {
           href="/"
           className="btn btn-primary btn-sm"
         >
-          Home
+          Inicio
         </Link>
         {session?.user ? (
           <>
@@ -27,7 +27,7 @@ const Navbar = () => {
               onClick={() => signOut()}
               className="btn btn-danger btn-sm"
             >
-              Signout
+              Cerrar sesión
             </button>
           </>
         ) : (

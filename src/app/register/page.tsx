@@ -6,9 +6,8 @@ import { useState } from "react";
 
 const RegisterPage = () => {
   const [errors, setErrors] = useState<string[]>([]);
-  const [name, setName] = useState<string>("test");
-  const [email, setEmail] = useState<string>("test@test.com");
-  const [password, setPassword] = useState<string>("123123");
+  const [username, setUsername] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -23,8 +22,7 @@ const RegisterPage = () => {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          name,
-          email,
+          username,
           password,
         }),
       }
@@ -38,7 +36,7 @@ const RegisterPage = () => {
     }
 
     const responseNextAuth = await signIn("credentials", {
-      email,
+      username,
       password,
       redirect: false,
     });
@@ -53,27 +51,19 @@ const RegisterPage = () => {
 
   return (
     <div>
-      <h1>Register</h1>
+      <h1>Registro</h1>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="test"
-          name="name"
+          name="username"
           className="form-control mb-2"
-          value={name}
-          onChange={(event) => setName(event.target.value)}
-        />
-        <input
-          type="email"
-          placeholder="test@test.com"
-          name="email"
-          className="form-control mb-2"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
         />
         <input
           type="password"
-          placeholder="123123"
+          placeholder="Inserta tu contraseña"
           name="password"
           className="form-control mb-2"
           value={password}

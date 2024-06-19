@@ -6,8 +6,8 @@ import { useState } from "react";
 
 const LoginPage = () => {
   const [errors, setErrors] = useState<string[]>([]);
-  const [email, setEmail] = useState("test@test.com");
-  const [password, setPassword] = useState("123123");
+  const [username, setUsername] = useState("");
+  const [password, setPassword] = useState("");
   const router = useRouter();
 
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
@@ -15,7 +15,7 @@ const LoginPage = () => {
     setErrors([]);
 
     const responseNextAuth = await signIn("credentials", {
-      email,
+      username,
       password,
       redirect: false,
     });
@@ -33,12 +33,12 @@ const LoginPage = () => {
       <h1>Login</h1>
       <form onSubmit={handleSubmit}>
         <input
-          type="email"
-          placeholder="test@test.com"
+          type="text"
+          placeholder="username"
           name="email"
           className="form-control mb-2"
-          value={email}
-          onChange={(event) => setEmail(event.target.value)}
+          value={username}
+          onChange={(event) => setUsername(event.target.value)}
         />
         <input
           type="password"

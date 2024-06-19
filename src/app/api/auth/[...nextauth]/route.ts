@@ -6,7 +6,7 @@ const handler = NextAuth({
     CredentialsProvider({
       name: "Credentials",
       credentials: {
-        email: { label: "email", type: "email", placeholder: "test@test.com" },
+        username: { label: "username", type: "text", placeholder: "Escribe tu usuario" },
         password: { label: "Password", type: "password" },
       },
       async authorize(credentials, req) {
@@ -15,16 +15,22 @@ const handler = NextAuth({
           {
             method: "POST",
             body: JSON.stringify({
-              email: credentials?.email,
+              username: credentials?.username,
               password: credentials?.password,
             }),
             headers: { "Content-Type": "application/json" },
           }
         );
         const user = await res.json();
-        console.log(user);
+        console.log("User", user);
 
         if (user.error) throw user;
+         // Log the username specifically
+         if (user.username) {
+          console.log('Username:', user.username);
+        } else {
+          console.log('Username not provided in the response.');
+        }
 
         return user;
       },

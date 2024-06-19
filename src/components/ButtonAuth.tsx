@@ -14,10 +14,10 @@ export default function ButtonAuth() {
   if (session) {
     return (
       <>
-        Signed in as {session.user?.email} <br />
+        Has iniciado sesión como <b>{session.user?.username}</b>. Para ver tu perfil y el ranking, ve al <b>Dashboard</b><br />
         <button
           onClick={() => signOut()}
-          className="btn btn-danger"
+          className="btn btn-danger mt-4"
         >
           Sign out
         </button>
