@@ -50,7 +50,8 @@ const RegisterPage = () => {
   };
 
   return (
-    <div>
+    <div className="mt-3">
+      <h1>Tic Tac Toe!</h1>
       <h1>Registro</h1>
       <form onSubmit={handleSubmit}>
         <input

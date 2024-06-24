@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 
-const AUTH_BEARER_TOKEN = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VybmFtZSI6InVzZXIxMjMiLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE3MTg4MTAzNzMsImV4cCI6MTcxODg5Njc3M30.YHpHePA0WfEsggLvRQBo-Veu_RxaAIyczCcbS_67JVo";
+const AUTH_BEARER_TOKEN = process.env.AUTH_BEARER
+
 type User = {
     id: number;
     email: string;

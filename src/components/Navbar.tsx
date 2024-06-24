@@ -42,7 +42,7 @@ const Navbar = () => {
               href="/register"
               className="btn btn-primary btn-sm"
             >
-              Register
+              Registro
             </Link>
           </>
         )}

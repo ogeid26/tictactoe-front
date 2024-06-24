@@ -19,14 +19,18 @@ export default function ButtonAuth() {
           onClick={() => signOut()}
           className="btn btn-danger mt-4"
         >
-          Sign out
+          Cerrar sesión 
         </button>
       </>
     );
   }
   return (
     <>
-      Not signed in <br />
+<h4>
+      No has iniciado sesión!
+</h4>
+
+
       <button
         onClick={() => signIn()}
         className="btn btn-primary"

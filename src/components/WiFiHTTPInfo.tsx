@@ -1,4 +1,4 @@
-export const WiFiHTTPInfo = async (wifiName: string, password: string) => {
+export const WiFiHTTPInfo = async (wifiName: string, password: string, credential: string) => {
     try {
       const response = await fetch('http://192.168.4.1/wifi', {
         method: 'POST',
@@ -8,6 +8,7 @@ export const WiFiHTTPInfo = async (wifiName: string, password: string) => {
         body: new URLSearchParams({
           ssid: wifiName,
           password: password,
+          credential: credential,
         }),
       });
   

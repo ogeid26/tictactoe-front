@@ -9,13 +9,11 @@ import { FormEvent, useState } from "react";
 const HomePage = () => {
   const [wifiName, setWifiName] = useState("");
   const [password, setPassword] = useState("");
+  const [credential, setCredential] = useState("")
 
-  const sendWifiInfo = () => {
-    SendWifiInfo(wifiName, password);
-  };
 
   const sendHTTPWiFiInfo = () => {
-  WiFiHTTPInfo(wifiName, password);  
+  WiFiHTTPInfo(wifiName, password, credential);  
   }
 
   const handleSubmit = (event: FormEvent) => {
@@ -32,13 +30,20 @@ const HomePage = () => {
         <div className="container text-bg-primary mt-5 p-4 rounded w-50">
           <h1>Credenciales de Internet</h1>
           <p>Por favor, agrega el nombre y la clave de la WiFi a la que estás conectad@</p>
-          <form onSubmit={handleSubmit} className="mb-3 w-50 b-2 color-primary">
+          <form onSubmit={handleSubmit} className="m-4 w-50 b-2 color-primary">
             <label className="form-label">Nombre de la WiFi</label>
             <input
               type="text"
               className="form-control"
               value={wifiName}
               onChange={(e) => setWifiName(e.target.value)}
+            />
+            <label className="form-label">Credencial ESP32</label>
+            <input
+              type="text"
+              className="form-control"
+              value={credential}
+              onChange={(e) => setCredential(e.target.value)}
             />
             <label className="form-label">Contraseña</label>
             <input
